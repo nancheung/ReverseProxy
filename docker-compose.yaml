@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+    jrebel:
+        image: alpine:latest
+        container_name: jrebel
+        restart: always
+        volumes:
+          - ./jrebel/ReverseProxy_linux_amd64:/usr/bin/ReverseProxy_linux_amd64
+        command: /bin/sh -c "chmod a+x /usr/bin/ReverseProxy_linux_amd64 && /usr/bin/ReverseProxy_linux_amd64 -l 0.0.0.0:8888"
